@@ -15,14 +15,14 @@ namespace Sk611715MIS4200.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "About Stephanie Kasunick";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact Stephanie Kasunick";
 
             return View();
         }
