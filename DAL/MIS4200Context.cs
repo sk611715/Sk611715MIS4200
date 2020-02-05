@@ -14,8 +14,15 @@ namespace Sk611715MIS4200.DAL
             // this method is a 'constructor' and is called when a new context is created
             // the base attribute says which connection string to use
         }
-        public DbSet<Orders> Orders { get; set; }
-        public DbSet<Customer> Customer { get; set; }
+
+
+        // Include each object here. The value inside <> is the name of the class,
+        // the value outside should generally be the plural of the class name
+        // and is the name used to reference the entity in code
+
+        public DbSet<Artist> Artists { get; set; }
+        public DbSet<Album> Albums { get; set; }
+        public DbSet<ArtistAlbum> ArtistAlbums { get; set; }
 
     }
 }

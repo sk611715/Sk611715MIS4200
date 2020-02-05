@@ -11,107 +11,116 @@ using Sk611715MIS4200.Models;
 
 namespace Sk611715MIS4200.Controllers
 {
-    public class CustomersController : Controller
+    public class ArtistAlbumsController : Controller
     {
         private MIS4200Context db = new MIS4200Context();
 
-        // GET: Customers
+        // GET: ArtistAlbums
         public ActionResult Index()
         {
-            return View(db.Customer.ToList());
+            var artistAlbums = db.ArtistAlbums.Include(a => a.Album).Include(a => a.Artist);
+            return View(artistAlbums.ToList());
         }
 
-        // GET: Customers/Details/5
+        // GET: ArtistAlbums/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customer.Find(id);
-            if (customer == null)
+            ArtistAlbum artistAlbum = db.ArtistAlbums.Find(id);
+            if (artistAlbum == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(artistAlbum);
         }
 
-        // GET: Customers/Create
+        // GET: ArtistAlbums/Create
         public ActionResult Create()
         {
+            ViewBag.albumID = new SelectList(db.Albums, "albumID", "albumName");
+            ViewBag.artistID = new SelectList(db.Artists, "artistID", "artistName");
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: ArtistAlbums/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "customerID,firstName,lastName,email,phone,customerSince")] Customer customer)
+        public ActionResult Create([Bind(Include = "artistAlbumID,artistID,albumID")] ArtistAlbum artistAlbum)
         {
             if (ModelState.IsValid)
             {
-                db.Customer.Add(customer);
+                db.ArtistAlbums.Add(artistAlbum);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(customer);
+            ViewBag.albumID = new SelectList(db.Albums, "albumID", "albumName", artistAlbum.albumID);
+            ViewBag.artistID = new SelectList(db.Artists, "artistID", "artistName", artistAlbum.artistID);
+            return View(artistAlbum);
         }
 
-        // GET: Customers/Edit/5
+        // GET: ArtistAlbums/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customer.Find(id);
-            if (customer == null)
+            ArtistAlbum artistAlbum = db.ArtistAlbums.Find(id);
+            if (artistAlbum == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            ViewBag.albumID = new SelectList(db.Albums, "albumID", "albumName", artistAlbum.albumID);
+            ViewBag.artistID = new SelectList(db.Artists, "artistID", "artistName", artistAlbum.artistID);
+            return View(artistAlbum);
         }
 
-        // POST: Customers/Edit/5
+        // POST: ArtistAlbums/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "customerID,firstName,lastName,email,phone,customerSince")] Customer customer)
+        public ActionResult Edit([Bind(Include = "artistAlbumID,artistID,albumID")] ArtistAlbum artistAlbum)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(customer).State = EntityState.Modified;
+                db.Entry(artistAlbum).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(customer);
+            ViewBag.albumID = new SelectList(db.Albums, "albumID", "albumName", artistAlbum.albumID);
+            ViewBag.artistID = new SelectList(db.Artists, "artistID", "artistName", artistAlbum.artistID);
+            return View(artistAlbum);
         }
 
-        // GET: Customers/Delete/5
+        // GET: ArtistAlbums/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customer.Find(id);
-            if (customer == null)
+            ArtistAlbum artistAlbum = db.ArtistAlbums.Find(id);
+            if (artistAlbum == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(artistAlbum);
         }
 
-        // POST: Customers/Delete/5
+        // POST: ArtistAlbums/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Customer customer = db.Customer.Find(id);
-            db.Customer.Remove(customer);
+            ArtistAlbum artistAlbum = db.ArtistAlbums.Find(id);
+            db.ArtistAlbums.Remove(artistAlbum);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
