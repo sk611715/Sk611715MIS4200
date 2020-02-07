@@ -47,7 +47,7 @@ namespace Sk611715MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "artistID,artistName")] Artist artist)
+        public ActionResult Create([Bind(Include = "artistID,artistName,artistAge,age")] Artist artist)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Sk611715MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "artistID,artistName")] Artist artist)
+        public ActionResult Edit([Bind(Include = "artistID,artistName,artistAge,age")] Artist artist)
         {
             if (ModelState.IsValid)
             {

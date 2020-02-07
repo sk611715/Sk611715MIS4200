@@ -14,6 +14,12 @@
         <th>
             @Html.DisplayNameFor(model => model.artistName)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.artistAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
         <th></th>
     </tr>
 
@@ -21,6 +27,12 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.artistName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.artistAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.age)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.artistID }) |

@@ -13,6 +13,8 @@ namespace Sk611715MIS4200.DAL
         {
             // this method is a 'constructor' and is called when a new context is created
             // the base attribute says which connection string to use
+            // add the SetInitializer statement here
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MIS4200Context, Sk611715MIS4200.Migrations.MISContext.Configuration>("DefaultConnection"));
         }
 
 
@@ -23,6 +25,11 @@ namespace Sk611715MIS4200.DAL
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Album> Albums { get; set; }
         public DbSet<ArtistAlbum> ArtistAlbums { get; set; }
+        // add this method - it will be used later
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
 
     }
 }
