@@ -9,7 +9,6 @@ namespace Sk611715MIS4200.Models
     {
         public int artistID { get; set; }
         public string artistName { get; set; }
-        public string artistAge { get; set; }
         public int age { get; set; }
 
         //connect to ArtistAlbum
