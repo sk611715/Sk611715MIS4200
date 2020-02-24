@@ -250,21 +250,21 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\Albums\Create.cshtml" />
-    <Content Include="Views\Albums\Delete.cshtml" />
-    <Content Include="Views\Albums\Details.cshtml" />
-    <Content Include="Views\Albums\Edit.cshtml" />
-    <Content Include="Views\Albums\Index.cshtml" />
-    <Content Include="Views\ArtistAlbums\Create.cshtml" />
-    <Content Include="Views\ArtistAlbums\Delete.cshtml" />
-    <Content Include="Views\ArtistAlbums\Details.cshtml" />
-    <Content Include="Views\ArtistAlbums\Edit.cshtml" />
-    <Content Include="Views\ArtistAlbums\Index.cshtml" />
     <Content Include="Views\Artists\Create.cshtml" />
     <Content Include="Views\Artists\Delete.cshtml" />
     <Content Include="Views\Artists\Details.cshtml" />
     <Content Include="Views\Artists\Edit.cshtml" />
     <Content Include="Views\Artists\Index.cshtml" />
+    <Content Include="Views\ArtistAlbums\Create.cshtml" />
+    <Content Include="Views\ArtistAlbums\Delete.cshtml" />
+    <Content Include="Views\ArtistAlbums\Details.cshtml" />
+    <Content Include="Views\ArtistAlbums\Edit.cshtml" />
+    <Content Include="Views\ArtistAlbums\Index.cshtml" />
+    <Content Include="Views\Albums\Create.cshtml" />
+    <Content Include="Views\Albums\Delete.cshtml" />
+    <Content Include="Views\Albums\Details.cshtml" />
+    <Content Include="Views\Albums\Edit.cshtml" />
+    <Content Include="Views\Albums\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

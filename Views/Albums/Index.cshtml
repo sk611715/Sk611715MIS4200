@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<Sk611715MIS4200.Models.Album>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Albums";
 }
 
-<h2>Index</h2>
+<h2>Albums <span class="glyphicon glyphicon-cd"></span></h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.albumName)
@@ -23,23 +23,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.albumName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.genre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.releaseDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.albumID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.albumID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.albumID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.albumName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.releaseDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.albumID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.albumID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.albumID })
+            </td>
+        </tr>
+    }
 
 </table>
